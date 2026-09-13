@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)https://enchanting-bavarois-1966c4.netlify.app/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=a4004fb2-c0db-4d20-ab2e-0fa88f5d85f4
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+<meta name="hosting-provider" content="Netlify">
+<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=a4004fb2-c0db-4d20-ab2e-0fa88f5d85f4">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Neón y Sabor Mi Rancho — Carta Digital</title>
+<style>
+  :root{
+    --negro:#0a0a0a;
+    --negro2:#141414;
+    --verde:#00FF66;
+    --fucsia:#FF00A0;
+    --blanco:#ffffff;
+    --gris:#9a9a9a;
+    --card:#1a1a1a;
+    --borde:#2a2a2a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    background:var(--negro);
+    color:var(--blanco);
+    font-family:'Nunito',Arial,sans-serif;
+    min-height:100vh;
+    padding-bottom:60px;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Rajdhani','Arial Narrow',sans-serif;
+    font-weight:700;
+    letter-spacing:1px;
+  }
+  /* HEADER */
+  header{
+    background:linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    border-bottom:2px solid var(--verde);
+    box-shadow:0 0 20px rgba(0,255,102,0.25);
+    text-align:center;
+    padding:22px 16px 18px;
+    position:relative;
+  }
+  header .titulo{
+    font-size:1.8rem;
+    color:var(--verde);
+    text-shadow:0 0 12px rgba(0,255,102,0.7);
+  }
+  header .subtitulo{
+    font-size:1rem;
+    color:var(--fucsia);
+    text-shadow:0 0 10px rgba(255,0,160,0.6);
+    margin-top:2px;
+  }
+  header .frase{
+    color:var(--gris);
+    font-size:0.85rem;
+    margin-top:8px;
+    font-style:italic;
+  }
+  .admin-btn{
+    position:absolute;
+    top:14px;
+    right:14px;
+    background:transparent;
+    border:1px solid var(--fucsia);
+    color:var(--fucsia);
+    border-radius:8px;
+    padding:6px 10px;
+    font-size:0.75rem;
+    cursor:pointer;
+  }
+  .admin-btn:hover{background:rgba(255,0,160,0.12);}
+  /* NAV / CATEGORIES */
+  main{max-width:900px;margin:0 auto;padding:18px;}
+  .grid-categorias{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:14px;
+    margin-top:10px;
+  }
+  .cat-card{
+    background:var(--card);
+    border:1px solid var(--borde);
+    border-radius:14px;
+    padding:18px 10px;
+    text-align:center;
+    cursor:pointer;
+    transition:transform .15s, box-shadow .15s, border-color .15s;
+  }
+  .cat-card:hover{
+    transform:translateY(-3px);
+    border-color:var(--verde);
+    box-shadow:0 0 16px rgba(0,255,102,0.35);
+  }
+  .cat-card .icono{font-size:2rem;display:block;margin-bottom:6px;}
+  .cat-card .nombre{font-size:0.95rem;color:var(--blanco);}
+  .cat-card.apagada{opacity:0.4;}
+  /* BACK BUTTON */
+  .volver{
+    background:none;
+    border:1px solid var(--verde);
+    color:var(--verde);
+    border-radius:8px;
+    padding:8px 14px;
+    margin-bottom:14px;
+    cursor:pointer;
+    font-size:0.9rem;
+  }
+  .volver:hover{background:rgba(0,255,102,0.1);}
+  .cat-titulo{
+    font-size:1.4rem;
+    color:var(--verde);
+    margin-bottom:4px;
+    text-shadow:0 0 8px rgba(0,255,102,0.5);
+  }
+  .cat-nota{color:var(--gris);font-size:0.85rem;margin-bottom:14px;}
+  .subcat-titulo{
+    color:var(--fucsia);
+    font-size:1.05rem;
+    margin:18px 0 8px;
+    border-bottom:1px solid var(--borde);
+    padding-bottom:4px;
+  }
+  /* ITEM CARD */
+  .item{
+    background:var(--card);
+    border:1px solid var(--borde);
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:12px;
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+  }
+  .item img{
+    width:74px;height:74px;object-fit:cover;border-radius:10px;flex-shrink:0;
+    border:1px solid var(--borde);
+  }
+  .item-info{flex:1;min-width:0;}
+  .item-nombre{font-size:1.02rem;color:var(--blanco);font-weight:700;}
+  .item-desc{color:var(--gris);font-size:0.85rem;margin-top:3px;}
+  .item-opciones{color:#c9c9c9;font-size:0.8rem;margin-top:4px;}
+  .item-footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px;}
+  .item-precio{color:var(--verde);font-weight:700;font-size:0.95rem;}
+  .badge{
+    font-size:0.7rem;padding:3px 8px;border-radius:20px;font-weight:700;
+  }
+  .badge.disp{background:rgba(0,255,102,0.15);color:var(--verde);border:1px solid var(--verde);}
+  .badge.agotado{background:rgba(255,0,160,0.15);color:var(--fucsia);border:1px solid var(--fucsia);}
+  .aviso-nocturna{
+    background:rgba(255,0,160,0.08);
+    border:1px solid var(--fucsia);
+    color:var(--fucsia);
+    padding:10px 14px;
+    border-radius:10px;
+    margin-bottom:14px;
+    font-size:0.9rem;
+    text-align:center;
+  }
+  .aviso-general{
+    background:rgba(0,255,102,0.06);
+    border:1px solid var(--verde);
+    border-radius:10px;
+    padding:10px 14px;
+    margin-bottom:16px;
+  }
+  .aviso-general .aviso-titulo{
+    color:var(--verde);font-size:0.85rem;font-weight:700;margin-bottom:3px;
+  }
+  .aviso-general .aviso-texto{
+    color:var(--blanco);font-size:0.82rem;
+  }
+  .vacio{color:var(--gris);text-align:center;padding:20px 0;font-size:0.9rem;}
+  .btn-agregar{
+    margin-top:10px;background:transparent;border:1px solid var(--verde);color:var(--verde);
+    border-radius:8px;padding:6px 12px;font-size:0.8rem;cursor:pointer;font-weight:700;
+  }
+  .btn-agregar:hover{background:rgba(0,255,102,0.12);}
+  /* FOOTER */
+  footer{
+    text-align:center;color:var(--gris);font-size:0.75rem;padding:20px;
+  }
+  /* QR BUTTON FLOATING */
+  .qr-flotante{
+    position:fixed;bottom:16px;right:16px;
+    background:var(--verde);color:#000;border:none;border-radius:50%;
+    width:54px;height:54px;font-size:1.4rem;cursor:pointer;
+    box-shadow:0 0 16px rgba(0,255,102,0.6);
+    z-index:50;
+  }
+  /* CARRITO / PEDIDO FLOATING */
+  .carrito-flotante{
+    position:fixed;bottom:16px;left:16px;
+    background:var(--fucsia);color:#000;border:none;border-radius:50%;
+    width:54px;height:54px;font-size:1.4rem;cursor:pointer;
+    box-shadow:0 0 16px rgba(255,0,160,0.6);
+    z-index:50;
+  }
+  .carrito-badge{
+    position:fixed;bottom:52px;left:52px;
+    background:var(--verde);color:#000;border-radius:50%;
+    min-width:20px;height:20px;font-size:0.7rem;font-weight:700;
+    display:none;align-items:center;justify-content:center;
+    z-index:51;padding:0 4px;
+  }
+  .aviso-toast{
+    position:fixed;top:16px;left:50%;transform:translateX(-50%) translateY(-40px);
+    background:var(--verde);color:#000;padding:8px 16px;border-radius:20px;
+    font-size:0.85rem;font-weight:700;z-index:200;opacity:0;transition:.25s;
+    pointer-events:none;white-space:nowrap;
+  }
+  .aviso-toast.visible{opacity:1;transform:translateX(-50%) translateY(0);}
+  .carrito-fila{
+    display:flex;align-items:center;gap:10px;background:#0f0f0f;border:1px solid var(--borde);
+    border-radius:10px;padding:10px;margin-bottom:8px;
+  }
+  .carrito-info{flex:1;min-width:0;}
+  .carrito-nombre{font-size:0.9rem;font-weight:700;}
+  .carrito-precio{color:var(--verde);font-size:0.82rem;margin-top:2px;}
+  .carrito-cantidad{display:flex;align-items:center;gap:8px;}
+  .carrito-cantidad button{
+    background:#1a1a1a;border:1px solid var(--borde);color:var(--blanco);
+    width:26px;height:26px;border-radius:6px;cursor:pointer;font-size:1rem;
+  }
+  .carrito-quitar{background:none;border:none;color:var(--fucsia);cursor:pointer;font-size:1rem;}
+  .carrito-fila-completa{margin-bottom:10px;}
+  .carrito-fila-completa .carrito-fila{margin-bottom:4px;}
+  .carrito-nota{
+    width:100%;background:#0f0f0f;border:1px solid var(--borde);color:var(--blanco);
+    border-radius:8px;padding:6px 10px;font-size:0.78rem;font-family:inherit;
+  }
+  .carrito-total{color:var(--verde);font-weight:700;font-size:1rem;text-align:right;margin:12px 0;}
+  .btn-whatsapp{background:#25D366;color:#000;}
+  /* MODALS */
+  .overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,0.85);
+    display:none;align-items:center;justify-content:center;z-index:100;padding:16px;
+  }
+  .overlay.activo{display:flex;}
+  .modal{
+    background:var(--negro2);border:1px solid var(--verde);border-radius:16px;
+    padding:22px;max-width:420px;width:100%;max-height:88vh;overflow-y:auto;
+    box-shadow:0 0 30px rgba(0,255,102,0.25);
+  }
+  .modal h3{color:var(--verde);margin-bottom:14px;}
+  .modal label{display:block;font-size:0.8rem;color:var(--gris);margin-top:10px;margin-bottom:4px;}
+  .modal input[type=text],.modal input[type=number],.modal textarea,.modal select{
+    width:100%;background:#0f0f0f;border:1px solid var(--borde);color:var(--blanco);
+    border-radius:8px;padding:8px 10px;font-size:0.9rem;font-family:inherit;
+  }
+  .modal textarea{resize:vertical;min-height:50px;}
+  .modal-botones{display:flex;gap:10px;margin-top:18px;}
+  .btn{
+    flex:1;border:none;border-radius:8px;padding:10px;font-weight:700;cursor:pointer;font-size:0.9rem;
+  }
+  .btn-verde{background:var(--verde);color:#000;}
+  .btn-fucsia{background:var(--fucsia);color:#000;}
+  .btn-borde{background:transparent;border:1px solid var(--gris);color:var(--gris);}
+  .cerrar-x{
+    position:absolute;top:10px;right:14px;background:none;border:none;color:var(--gris);
+    font-size:1.3rem;cursor:pointer;
+  }
+  .modal{position:relative;}
+  .qr-img{display:block;margin:14px auto;width:220px;height:220px;background:#fff;border-radius:8px;padding:8px;}
+  .url-box{
+    background:#0f0f0f;border:1px solid var(--borde);border-radius:8px;padding:8px;
+    font-size:0.75rem;color:var(--verde);word-break:break-all;text-align:center;
+  }
+  /* ADMIN */
+  .admin-cat-lista{display:flex;flex-direction:column;gap:8px;}
+  .admin-cat-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#0f0f0f;border:1px solid var(--borde);border-radius:8px;padding:10px 12px;cursor:pointer;
+  }
+  .admin-cat-row:hover{border-color:var(--verde);}
+  .admin-item-row{
+    display:flex;justify-content:space-between;align-items:center;
+    background:#0f0f0f;border:1px solid var(--borde);border-radius:8px;padding:8px 10px;margin-bottom:8px;
+  }
+  .admin-item-row .nombre{font-size:0.88rem;}
+  .admin-item-row .acciones button{
+    background:none;border:none;color:var(--gris);cursor:pointer;font-size:0.95rem;margin-left:8px;
+  }
+  .admin-item-row .acciones button.editar:hover{color:var(--verde);}
+  .admin-item-row .acciones button.borrar:hover{color:var(--fucsia);}
+  .toggle-row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+  .switch{position:relative;width:44px;height:24px;flex-shrink:0;}
+  .switch input{opacity:0;width:0;height:0;}
+  .slider{position:absolute;inset:0;background:#333;border-radius:24px;transition:.2s;cursor:pointer;}
+  .slider:before{content:"";position:absolute;width:18px;height:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s;}
+  .switch input:checked + .slider{background:var(--verde);}
+  .switch input:checked + .slider:before{transform:translateX(20px);}
+  .small-note{color:var(--gris);font-size:0.75rem;margin-top:10px;line-height:1.4;}
+</style>
+</head>
+<body>
+
+<header>
+  <button class="admin-btn" onclick="abrirLogin()">Administrar</button>
+  <div class="titulo brand">NEÓN Y SABOR MI RANCHO</div>
+  <div class="subtitulo">Restaurante Gastro Bar</div>
+  <div class="frase">"Buena comida, buenas bebidas y grandes momentos."</div>
+</header>
+
+<main id="main"><div class="aviso-general">
+      <div class="aviso-titulo">Aviso importante</div>
+      <div class="aviso-texto">Los desechables tienen un costo adicional. El domicilio tiene un valor de $2.000.</div>
+    </div><button class="volver" onclick="irAInicio()">← Categorías</button>
+    <div class="cat-titulo">🌅 Desayunos</div><div class="item">
+    
+    <div class="item-info">
+      <div class="item-nombre">Caldo + Bandeja Huevos al gusto corriente</div>
+      <div class="item-desc">Caldo + Arroz + Huevos su Preferencia + Arepa o Patacones + Bebida- Cafe - Limonada - Tinto- Chocolate</div>
+      <div class="item-opciones">Opciones: Huevos - Rancheros - Pericos rancheros - Revueltos - Fritos</div>
+      
+      <div class="item-footer">
+        <span class="item-precio">$10</span>
+        <span class="badge disp">Disponible</span>
+      </div>
+      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;caldo&#39;)">+ Agregar</button>
+    </div>
+  </div><div class="item">
+    
+    <div class="item-info">
+      <div class="item-nombre">Bandeja con proteína de su preferencia deja en la nota</div>
+      <div class="item-desc">Elige tu proteína para acompañar el desayuno. déjanos saber en la nota</div>
+      <div class="item-opciones">Opciones: Carne sudada, Pollo sudado, Cachama sudada, Pechuga para asar, Carne de res para asar, Carne de cerdo para asar, Hígado-Huevos al gusto</div>
+      
+      <div class="item-footer">
+        <span class="item-precio">$8</span>
+        <span class="badge disp">Disponible</span>
+      </div>
+      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;huevos&#39;)">+ Agregar</button>
+    </div>
+  </div><div class="item">
+    
+    <div class="item-info">
+      <div class="item-nombre">Bandeja con proteína</div>
+      <div class="item-desc">Elige tu proteína para acompañar el desayuno.</div>
+      <div class="item-opciones">Opciones: Carne sudada, Pollo sudado, Cachama sudada, Pechuga para asar, Carne de res para asar, Carne de cerdo para asar, Hígado</div>
+      
+      <div class="item-footer">
+        <span class="item-precio">Precio por confirmar</span>
+        <span class="badge disp">Disponible</span>
+      </div>
+      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;bandeja_desayuno&#39;)">+ Agregar</button>
+    </div>
+  </div></main>
+
+<footer>Piamonte, Cauca · Carta digital</footer>
+
+<button class="qr-flotante" onclick="abrirQR()" title="Ver código QR">▦</button>
+<button class="carrito-flotante" onclick="abrirCarrito()" title="Ver mi pedido">🛒</button>
+<div class="carrito-badge" id="carritoBadge" style="display: flex;">1</div>
+<div class="aviso-toast" id="avisoAgregado">Bandeja con proteína agregado al pedido</div>
+
+<!-- CARRITO / PEDIDO MODAL -->
+<div class="overlay" id="overlayCarrito">
+  <div class="modal">
+    <button class="cerrar-x" onclick="cerrar(&#39;overlayCarrito&#39;)">✕</button>
+    <h3>Tu pedido</h3>
+    <div id="carritoContenido"></div>
+    <div id="carritoTotalBox" style="display:none;">
+      <div class="carrito-total" id="carritoTotal"></div>
+      <label>Mesa o nombre (opcional)</label>
+      <input type="text" id="carritoMesa" placeholder="Ej: Mesa 4 o tu nombre">
+    </div>
+    <div class="modal-botones">
+      <button class="btn btn-whatsapp" onclick="enviarPedidoWhatsApp()">Enviar pedido por WhatsApp</button>
+    </div>
+    <div class="small-note">Tu pedido se envía directamente al WhatsApp del restaurante (312 828 2045) para confirmar disponibilidad, tiempo de entrega y forma de pago.</div>
+  </div>
+</div>
+
+<!-- QR MODAL -->
+<div class="overlay" id="overlayQR">
+  <div class="modal">
+    <button class="cerrar-x" onclick="cerrar(&#39;overlayQR&#39;)">✕</button>
+    <h3>Código QR de la carta</h3>
+    <img class="qr-img" id="qrImg" src="./index_files/saved_resource" alt="QR">
+    <div class="url-box" id="qrUrl">https://enchanting-bavarois-1966c4.netlify.app/</div>
+    <div class="small-note">Este QR siempre apunta a la dirección donde esté abierto este archivo. Úsalo en todas las mesas — es el único QR que necesitas. Si publicas el archivo en una nueva URL pública HTTPS, abre este menú desde esa URL y el QR se actualizará solo.</div>
+    <div class="modal-botones">
+      <button class="btn btn-verde" onclick="descargarQR()">Descargar QR</button>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="overlay" id="overlayLogin">
+  <div class="modal">
+    <button class="cerrar-x" onclick="cerrar(&#39;overlayLogin&#39;)">✕</button>
+    <h3>Acceso administrador</h3>
+    <label>Usuario</label>
+    <input type="text" id="loginUser">
+    <label>Contraseña</label>
+    <input type="text" id="loginPass">
+    <div class="modal-botones">
+      <button class="btn btn-verde" onclick="intentarLogin()">Entrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="overlay" id="overlayAdmin">
+  <div class="modal" style="max-width:480px;">
+    <button class="cerrar-x" onclick="cerrar(&#39;overlayAdmin&#39;)">✕</button>
+    <h3 id="adminTitulo">Panel de administración</h3>
+    <div id="adminContenido"><button class="btn btn-verde" style="margin-bottom:14px;" onclick="exportarDatos()">📥 Descargar copia de mis datos (respaldo)</button>
+      <label>Título del aviso</label>
+      <input type="text" id="avisoTituloInput" value="Aviso importante">
+      <label>Texto del aviso (desechables, domicilio, etc.)</label>
+      <textarea id="avisoTextoInput">Los desechables tienen un costo adicional. El domicilio tiene un valor de $2.000.</textarea>
+      <button class="btn btn-verde" style="margin:8px 0 16px;" onclick="guardarAviso()">Guardar aviso</button>
+      <div class="admin-cat-lista"><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;desayunos&#39;)">
+        <span>🌅 Desayunos</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;almuerzos&#39;)">
+        <span>🍲 Almuerzos Corrientes</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;carta&#39;)">
+        <span>🍽️ Comida a la Carta</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;nocturna&#39;)">
+        <span>🌙 Nocturna — Fines de Semana</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;helados&#39;)">
+        <span>🍨 Helados Caseros</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;bebidas&#39;)">
+        <span>🥤 Bebidas</span><span>›</span>
+      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;servicios&#39;)">
+        <span>📋 Servicios</span><span>›</span>
+      </div></div><div class="small-note">Toca una categoría para editar sus productos. Usuario y contraseña de administrador se pueden cambiar más adelante si lo necesitas.</div></div>
+  </div>
+</div>
+
+<!-- ITEM EDIT MODAL -->
+<div class="overlay" id="overlayItem">
+  <div class="modal">
+    <button class="cerrar-x" onclick="cerrar(&#39;overlayItem&#39;)">✕</button>
+    <h3 id="itemModalTitulo">Producto</h3>
+    <label>Nombre</label>
+    <input type="text" id="fNombre">
+    <label>Descripción</label>
+    <textarea id="fDesc"></textarea>
+    <label>Opciones (separadas por coma, ej. proteínas o tamaños)</label>
+    <input type="text" id="fOpciones">
+    <label>Precio (pesos, deja vacío si aún no está definido)</label>
+    <input type="number" id="fPrecio">
+    <label>Foto (URL, opcional)</label>
+    <input type="text" id="fFoto">
+    <div class="toggle-row">
+      <span>Disponible</span>
+      <label class="switch"><input type="checkbox" id="fDisponible" checked=""><span class="slider"></span></label>
+    </div>
+    <div class="modal-botones">
+      <button class="btn btn-verde" onclick="guardarItem()">Guardar</button>
+      <button class="btn btn-borde" onclick="cerrar(&#39;overlayItem&#39;)">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= DATOS ================= */
+const DATOS_INICIALES = {
+  usuario:"isabel",
+  clave:"rancho2024",
+  avisoTitulo:"Aviso importante",
+  avisoTexto:"Los desechables tienen un costo adicional. El domicilio tiene un valor de $2.000.",
+  categorias:[
+    {id:"desayunos", icono:"🌅", nombre:"Desayunos", items:[
+      {id:"caldo", nombre:"Caldo del día", desc:"Consulta con el mesero el caldo preparado hoy.", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"huevos", nombre:"Huevos al gusto", desc:"Huevos preparados al gusto, acompañados de arroz, arepa o tajadas.", opciones:"Pericos, Revueltos, Rancheros, Fritos", precio:null, foto:"", disponible:true},
+      {id:"bandeja_desayuno", nombre:"Bandeja con proteína", desc:"Elige tu proteína para acompañar el desayuno.", opciones:"Carne sudada, Pollo sudado, Cachama sudada, Pechuga para asar, Carne de res para asar, Carne de cerdo para asar, Hígado", precio:null, foto:"", disponible:true}
+    ]},
+    {id:"almuerzos", icono:"🍲", nombre:"Almuerzos Corrientes", sopaDelDia:"", principioDelDia:"", ensalada:"", acompanante:"Arroz, papa, yuca, patacón o tajadas (según el día)", items:[
+      {id:"bandeja_almuerzo", nombre:"Bandeja con proteína", desc:"Acompañada de sopa, principio, ensalada y acompañante del día.", opciones:"Carne sudada, Pescado sudado, Pollo sudado, Pechuga para asar, Res para asar, Cerdo para asar, Chorizo, Cachama frita", precio:null, foto:"", disponible:true}
+    ]},
+    {id:"carta", icono:"🍽️", nombre:"Comida a la Carta", items:[
+      {id:"milanesa", nombre:"Milanesa", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"chuleta", nombre:"Chuleta", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"costilla", nombre:"Costilla ahumada", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"paisa", nombre:"Bandeja paisa", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"tilapia", nombre:"Tilapia apanada", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"chicharron", nombre:"Chicharrón ahumado", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"filete", nombre:"Filete de pescado", desc:"", opciones:"", precio:null, foto:"", disponible:true}
+    ]},
+    {id:"nocturna", icono:"🌙", nombre:"Nocturna — Fines de Semana", activa:true, diasTexto:"Viernes, sábado, domingo y festivos", subcategorias:[
+      {nombre:"Picadas", items:[
+        {id:"p_ranchera", nombre:"Picada La Ranchera", desc:"Una picada tradicional de la casa.", opciones:"", precio:null, foto:"", disponible:true, personas:""},
+        {id:"p_neon", nombre:"Picada Neón", desc:"Una combinación especial de carnes y acompañantes.", opciones:"", precio:null, foto:"", disponible:true, personas:""},
+        {id:"p_mirancho", nombre:"Picada Mi Rancho", desc:"Una picada con sabor tradicional.", opciones:"", precio:null, foto:"", disponible:true, personas:""},
+        {id:"p_explosion", nombre:"Picada Explosión Neón", desc:"Una picada especial de la casa.", opciones:"", precio:null, foto:"", disponible:true, personas:""},
+        {id:"p_gran", nombre:"Picada Gran Rancho", desc:"Una picada grande para compartir.", opciones:"", precio:null, foto:"", disponible:true, personas:""},
+        {id:"p_familiar", nombre:"Picada Familiar Neón", desc:"Una opción grande para compartir en familia.", opciones:"", precio:null, foto:"", disponible:true, personas:""}
+      ]},
+      {nombre:"Salchipapas", items:[
+        {id:"s_clasica", nombre:"Salchipapa Clásica", desc:"", opciones:"Personal, Para compartir, Familiar", precio:null, foto:"", disponible:true},
+        {id:"s_neon", nombre:"Salchipapa Neón", desc:"", opciones:"Personal, Para compartir, Familiar", precio:null, foto:"", disponible:true},
+        {id:"s_ranchera", nombre:"Salchipapa Ranchera", desc:"", opciones:"Personal, Para compartir, Familiar", precio:null, foto:"", disponible:true}
+      ]},
+      {nombre:"Menú Infantil", items:[
+        {id:"mini_neon", nombre:"Mini Neón", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+        {id:"mini_rancho", nombre:"Mini Rancho", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+        {id:"mini_fiesta", nombre:"Mini Fiesta", desc:"", opciones:"", precio:null, foto:"", disponible:true}
+      ]},
+      {nombre:"Combos en Familia", items:[]}
+    ]},
+    {id:"helados", icono:"🍨", nombre:"Helados Caseros", saborDelDia:"", items:[
+      {id:"helado_dia", nombre:"Helado del día", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"helado_casa", nombre:"Helado de la casa", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"copa_neon", nombre:"Copa Neón", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"copa_rancho", nombre:"Copa Mi Rancho", desc:"", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"helado_especial", nombre:"Helado especial", desc:"", opciones:"", precio:null, foto:"", disponible:true}
+    ]},
+    {id:"bebidas", icono:"🥤", nombre:"Bebidas", subcategorias:[
+      {nombre:"Jugos Naturales", items:[]},
+      {nombre:"Limonadas", items:[]}
+    ]},
+    {id:"servicios", icono:"📋", nombre:"Servicios", items:[
+      {id:"domicilios", nombre:"Domicilios", desc:"Pregunta por nuestra cobertura y tiempos de entrega.", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"reservas", nombre:"Reservas", desc:"Separa tu mesa con anticipación.", opciones:"", precio:null, foto:"", disponible:true},
+      {id:"eventos", nombre:"Eventos y celebraciones", desc:"Consulta por espacios para grupos y celebraciones.", opciones:"", precio:null, foto:"", disponible:true}
+    ]}
+  ]
+};
+
+const CLAVE_STORAGE = "carta_neon_mi_rancho_v1";
+const WHATSAPP_NUMERO = "573128282045"; // 3128282045 con indicativo de Colombia
+let DATOS = cargarDatos();
+let sesionAdmin = false;
+let vistaActual = {tipo:"inicio"};
+let edicionActual = null; // {catId, subIndex|null, itemId|null}
+let carrito = []; // {catId, subIndex, itemId, nombre, precio, opciones, cantidad}
+
+function cargarDatos(){
+  const guardado = localStorage.getItem(CLAVE_STORAGE);
+  if(guardado){
+    try{ return JSON.parse(guardado); }catch(e){ return JSON.parse(JSON.stringify(DATOS_INICIALES)); }
+  }
+  return JSON.parse(JSON.stringify(DATOS_INICIALES));
+}
+function guardarDatos(){ localStorage.setItem(CLAVE_STORAGE, JSON.stringify(DATOS)); }
+
+function formatoPrecio(p){
+  if(p===null || p===undefined || p==="") return "Precio por confirmar";
+  return "$" + Number(p).toLocaleString("es-CO");
+}
+
+function esFindeOFestivo(){
+  const dia = new Date().getDay(); // 0 domingo, 5 viernes, 6 sabado
+  return dia===0 || dia===5 || dia===6;
+}
+
+/* ================= RENDER ================= */
+function render(){
+  const main = document.getElementById("main");
+  let aviso = "";
+  if(DATOS.avisoTexto){
+    aviso = `<div class="aviso-general">
+      <div class="aviso-titulo">${DATOS.avisoTitulo||"Aviso"}</div>
+      <div class="aviso-texto">${DATOS.avisoTexto}</div>
+    </div>`;
+  }
+  if(vistaActual.tipo==="inicio"){
+    main.innerHTML = aviso + renderInicio();
+  } else if(vistaActual.tipo==="categoria"){
+    main.innerHTML = aviso + renderCategoria(vistaActual.id);
+  }
+}
+
+function renderInicio(){
+  let html = `<div class="grid-categorias">`;
+  DATOS.categorias.forEach(cat=>{
+    const apagada = cat.id==="nocturna" && cat.activa===false;
+    html += `<div class="cat-card ${apagada?'apagada':''}" onclick="irACategoria('${cat.id}')">
+      <span class="icono">${cat.icono}</span>
+      <span class="nombre">${cat.nombre}</span>
+    </div>`;
+  });
+  html += `</div>`;
+  return html;
+}
+
+function renderItem(item, catId, subIndex){
+  const badge = item.disponible ? `<span class="badge disp">Disponible</span>` : `<span class="badge agotado">Agotado</span>`;
+  const foto = item.foto ? `<img src="${item.foto}" alt="${item.nombre}">` : "";
+  const subIdxAttr = (subIndex===null||subIndex===undefined) ? "null" : subIndex;
+  const botonAgregar = item.disponible
+    ? `<button class="btn-agregar" onclick="agregarAlCarrito('${catId}', ${subIdxAttr}, '${item.id}')">+ Agregar</button>`
+    : "";
+  return `<div class="item">
+    ${foto}
+    <div class="item-info">
+      <div class="item-nombre">${item.nombre}</div>
+      ${item.desc?`<div class="item-desc">${item.desc}</div>`:""}
+      ${item.opciones?`<div class="item-opciones">Opciones: ${item.opciones}</div>`:""}
+      ${item.personas?`<div class="item-opciones">Recomendado para ${item.personas} personas</div>`:""}
+      <div class="item-footer">
+        <span class="item-precio">${formatoPrecio(item.precio)}</span>
+        ${badge}
+      </div>
+      ${botonAgregar}
+    </div>
+  </div>`;
+}
+
+function renderCategoria(id){
+  const cat = DATOS.categorias.find(c=>c.id===id);
+  if(!cat) return "";
+  let html = `<button class="volver" onclick="irAInicio()">← Categorías</button>
+    <div class="cat-titulo">${cat.icono} ${cat.nombre}</div>`;
+
+  if(cat.id==="nocturna"){
+    html += `<div class="cat-nota">Disponible: ${cat.diasTexto}</div>`;
+    if(cat.activa===false){
+      html += `<div class="aviso-nocturna">Nuestra carta nocturna no está disponible en este momento.</div>`;
+      return html;
+    } else {
+      html += `<div class="aviso-nocturna">Nuestra carta nocturna está disponible los fines de semana.</div>`;
+    }
+    cat.subcategorias.forEach((sub,si)=>{
+      html += `<div class="subcat-titulo">${sub.nombre}</div>`;
+      if(sub.items.length===0){ html += `<div class="vacio">Aún no hay productos configurados en esta sección.</div>`; }
+      sub.items.forEach(it=> html += renderItem(it, cat.id, si));
+    });
+    return html;
+  }
+
+  if(cat.id==="almuerzos"){
+    const filas = [];
+    if(cat.sopaDelDia) filas.push(`Sopa del día: ${cat.sopaDelDia}`);
+    if(cat.principioDelDia) filas.push(`Principio del día: ${cat.principioDelDia}`);
+    if(cat.ensalada) filas.push(`Ensalada: ${cat.ensalada}`);
+    if(cat.acompanante) filas.push(`Acompañante: ${cat.acompanante}`);
+    if(filas.length) html += `<div class="cat-nota">${filas.join(" · ")}</div>`;
+  }
+  if(cat.id==="helados" && cat.saborDelDia){
+    html += `<div class="cat-nota">Sabor del día: ${cat.saborDelDia}</div>`;
+  }
+
+  if(cat.subcategorias){
+    cat.subcategorias.forEach((sub,si)=>{
+      html += `<div class="subcat-titulo">${sub.nombre}</div>`;
+      if(sub.items.length===0){ html += `<div class="vacio">Aún no hay productos configurados en esta sección.</div>`; }
+      sub.items.forEach(it=> html += renderItem(it, cat.id, si));
+    });
+  } else {
+    if(cat.items.length===0){ html += `<div class="vacio">Aún no hay productos configurados en esta categoría.</div>`; }
+    cat.items.forEach(it=> html += renderItem(it, cat.id, null));
+  }
+  return html;
+}
+
+/* ================= CARRITO / PEDIDO WHATSAPP ================= */
+function agregarAlCarrito(catId, subIndex, itemId){
+  subIndex = subIndex==="null" ? null : subIndex;
+  const lista = obtenerListaItems(catId, subIndex);
+  const item = lista.find(i=>i.id===itemId);
+  if(!item) return;
+  const existente = carrito.find(c=>c.itemId===itemId && c.catId===catId && c.subIndex===subIndex);
+  if(existente){
+    existente.cantidad++;
+  } else {
+    carrito.push({catId, subIndex, itemId, nombre:item.nombre, precio:item.precio, opciones:item.opciones, cantidad:1, nota:""});
+  }
+  actualizarBadgeCarrito();
+  mostrarConfirmacionAgregado(item.nombre);
+}
+
+function mostrarConfirmacionAgregado(nombre){
+  const aviso = document.getElementById("avisoAgregado");
+  aviso.textContent = `${nombre} agregado al pedido`;
+  aviso.classList.add("visible");
+  clearTimeout(window._avisoTimeout);
+  window._avisoTimeout = setTimeout(()=>aviso.classList.remove("visible"), 1600);
+}
+
+function actualizarBadgeCarrito(){
+  const total = carrito.reduce((s,c)=>s+c.cantidad,0);
+  const badge = document.getElementById("carritoBadge");
+  if(total>0){ badge.textContent = total; badge.style.display="flex"; }
+  else{ badge.style.display="none"; }
+}
+
+function abrirCarrito(){
+  renderCarrito();
+  document.getElementById("overlayCarrito").classList.add("activo");
+}
+
+function renderCarrito(){
+  const cont = document.getElementById("carritoContenido");
+  if(carrito.length===0){
+    cont.innerHTML = `<div class="vacio">Aún no has agregado productos a tu pedido.</div>`;
+    document.getElementById("carritoTotalBox").style.display="none";
+    return;
+  }
+  let html = "";
+  let total = 0;
+  let hayPrecioIndefinido = false;
+  carrito.forEach((c,idx)=>{
+    if(c.precio){ total += c.precio * c.cantidad; } else { hayPrecioIndefinido = true; }
+    html += `<div class="carrito-fila-completa">
+      <div class="carrito-fila">
+        <div class="carrito-info">
+          <div class="carrito-nombre">${c.nombre}</div>
+          ${c.opciones?`<div class="item-opciones">${c.opciones}</div>`:""}
+          <div class="carrito-precio">${formatoPrecio(c.precio)}</div>
+        </div>
+        <div class="carrito-cantidad">
+          <button onclick="cambiarCantidadCarrito(${idx}, -1)">−</button>
+          <span>${c.cantidad}</span>
+          <button onclick="cambiarCantidadCarrito(${idx}, 1)">+</button>
+        </div>
+        <button class="carrito-quitar" onclick="quitarDelCarrito(${idx})">🗑</button>
+      </div>
+      <input type="text" class="carrito-nota" placeholder="¿Le agregas o le quitas algo a este plato? (opcional)" value="${c.nota||''}" oninput="actualizarNotaCarrito(${idx}, this.value)">
+    </div>`;
+  });
+  cont.innerHTML = html;
+  document.getElementById("carritoTotalBox").style.display="block";
+  document.getElementById("carritoTotal").textContent = formatoPrecio(total) + (hayPrecioIndefinido ? " + productos por confirmar" : "");
+}
+
+function actualizarNotaCarrito(idx, valor){
+  carrito[idx].nota = valor;
+}
+function cambiarCantidadCarrito(idx, delta){
+  carrito[idx].cantidad += delta;
+  if(carrito[idx].cantidad<=0){ carrito.splice(idx,1); }
+  actualizarBadgeCarrito();
+  renderCarrito();
+}
+function quitarDelCarrito(idx){
+  carrito.splice(idx,1);
+  actualizarBadgeCarrito();
+  renderCarrito();
+}
+
+function enviarPedidoWhatsApp(){
+  if(carrito.length===0){ alert("Tu pedido está vacío. Agrega productos antes de enviarlo."); return; }
+  const mesa = document.getElementById("carritoMesa").value.trim();
+  let mensaje = "Hola! Quiero hacer este pedido en Neón y Sabor Mi Rancho:\n\n";
+  let total = 0;
+  carrito.forEach(c=>{
+    mensaje += `• ${c.cantidad}x ${c.nombre}`;
+    if(c.opciones) mensaje += ` (${c.opciones})`;
+    if(c.precio){ mensaje += ` — ${formatoPrecio(c.precio*c.cantidad)}`; total += c.precio*c.cantidad; }
+    if(c.nota) mensaje += `\n   Nota: ${c.nota}`;
+    mensaje += "\n";
+  });
+  if(total>0){ mensaje += `\nTotal aproximado: ${formatoPrecio(total)}\n`; }
+  if(mesa){ mensaje += `\nMesa / nombre: ${mesa}`; }
+  const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+}
+
+function irACategoria(id){ vistaActual = {tipo:"categoria", id}; render(); window.scrollTo(0,0); }
+function irAInicio(){ vistaActual = {tipo:"inicio"}; render(); }
+
+/* ================= QR ================= */
+function abrirQR(){
+  const url = window.location.href.split("#")[0];
+  document.getElementById("qrUrl").textContent = url;
+  document.getElementById("qrImg").src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=" + encodeURIComponent(url);
+  document.getElementById("overlayQR").classList.add("activo");
+}
+function descargarQR(){
+  const a = document.createElement("a");
+  a.href = document.getElementById("qrImg").src;
+  a.download = "QR_NeonYSaborMiRancho.png";
+  a.target="_blank";
+  a.click();
+}
+
+/* ================= LOGIN ================= */
+function abrirLogin(){
+  if(sesionAdmin){ abrirAdmin(); return; }
+  document.getElementById("loginUser").value="";
+  document.getElementById("loginPass").value="";
+  document.getElementById("overlayLogin").classList.add("activo");
+}
+function intentarLogin(){
+  const u = document.getElementById("loginUser").value.trim();
+  const p = document.getElementById("loginPass").value.trim();
+  if(u===DATOS.usuario && p===DATOS.clave){
+    sesionAdmin = true;
+    cerrar('overlayLogin');
+    abrirAdmin();
+  } else {
+    alert("Usuario o contraseña incorrectos.");
+  }
+}
+
+/* ================= ADMIN ================= */
+function abrirAdmin(){
+  vistaAdmin = {tipo:"categorias"};
+  renderAdmin();
+  document.getElementById("overlayAdmin").classList.add("activo");
+}
+let vistaAdmin = {tipo:"categorias"};
+
+function renderAdmin(){
+  const cont = document.getElementById("adminContenido");
+  const titulo = document.getElementById("adminTitulo");
+
+  if(vistaAdmin.tipo==="categorias"){
+    titulo.textContent = "Panel de administración";
+    let html = `<button class="btn btn-verde" style="margin-bottom:14px;" onclick="exportarDatos()">📥 Descargar copia de mis datos (respaldo)</button>
+      <label>Título del aviso</label>
+      <input type="text" id="avisoTituloInput" value="${DATOS.avisoTitulo||''}">
+      <label>Texto del aviso (desechables, domicilio, etc.)</label>
+      <textarea id="avisoTextoInput">${DATOS.avisoTexto||''}</textarea>
+      <button class="btn btn-verde" style="margin:8px 0 16px;" onclick="guardarAviso()">Guardar aviso</button>
+      <div class="admin-cat-lista">`;
+    DATOS.categorias.forEach(cat=>{
+      html += `<div class="admin-cat-row" onclick="adminAbrirCategoria('${cat.id}')">
+        <span>${cat.icono} ${cat.nombre}</span><span>›</span>
+      </div>`;
+    });
+    html += `</div>`;
+    html += `<div class="small-note">Toca una categoría para editar sus productos. Usuario y contraseña de administrador se pueden cambiar más adelante si lo necesitas.</div>`;
+    cont.innerHTML = html;
+    return;
+  }
+
+  if(vistaAdmin.tipo==="categoria"){
+    const cat = DATOS.categorias.find(c=>c.id===vistaAdmin.id);
+    titulo.textContent = cat.icono + " " + cat.nombre;
+    let html = `<button class="btn btn-borde" style="margin-bottom:12px;" onclick="vistaAdmin={tipo:'categorias'};renderAdmin();">← Categorías</button>`;
+
+    if(cat.id==="nocturna"){
+      html += `<div class="toggle-row"><span>Categoría nocturna activa</span>
+        <label class="switch"><input type="checkbox" id="toggleNocturna" ${cat.activa!==false?"checked":""} onchange="toggleNocturna(this.checked)"><span class="slider"></span></label></div>`;
+      cat.subcategorias.forEach((sub,si)=>{
+        html += `<div class="subcat-titulo">${sub.nombre}</div>`;
+        html += adminListaItems(cat.id, si);
+        html += `<button class="btn btn-verde" style="margin-bottom:14px;" onclick="nuevoItem('${cat.id}', ${si})">+ Agregar en ${sub.nombre}</button>`;
+      });
+      cont.innerHTML = html;
+      return;
+    }
+
+    if(cat.id==="almuerzos"){
+      html += `<label>Sopa del día</label>
+        <input type="text" id="sopaInput" value="${cat.sopaDelDia||''}">
+        <label>Principio del día</label>
+        <input type="text" id="principioInput" value="${cat.principioDelDia||''}">
+        <label>Ensalada</label>
+        <input type="text" id="ensaladaInput" value="${cat.ensalada||''}">
+        <label>Acompañante del día</label>
+        <input type="text" id="acompananteInput" value="${cat.acompanante||''}">
+        <button class="btn btn-verde" style="margin:8px 0 14px;" onclick="guardarCamposAlmuerzo()">Guardar</button>`;
+    }
+    if(cat.id==="helados"){
+      html += `<label>Sabor del día</label>
+        <input type="text" id="saborInput" value="${cat.saborDelDia||''}">
+        <button class="btn btn-verde" style="margin:8px 0 14px;" onclick="guardarSabor()">Guardar sabor</button>`;
+    }
+
+    if(cat.subcategorias){
+      cat.subcategorias.forEach((sub,si)=>{
+        html += `<div class="subcat-titulo">${sub.nombre}</div>`;
+        html += adminListaItems(cat.id, si);
+        html += `<button class="btn btn-verde" style="margin-bottom:14px;" onclick="nuevoItem('${cat.id}', ${si})">+ Agregar en ${sub.nombre}</button>`;
+      });
+    } else {
+      html += adminListaItems(cat.id, null);
+      html += `<button class="btn btn-verde" onclick="nuevoItem('${cat.id}', null)">+ Agregar producto</button>`;
+    }
+    cont.innerHTML = html;
+  }
+}
+
+function adminListaItems(catId, subIndex){
+  const cat = DATOS.categorias.find(c=>c.id===catId);
+  const items = subIndex===null ? cat.items : cat.subcategorias[subIndex].items;
+  if(items.length===0) return `<div class="vacio">Sin productos aún.</div>`;
+  let html = "";
+  items.forEach(it=>{
+    html += `<div class="admin-item-row">
+      <span class="nombre">${it.nombre} ${it.disponible?'':'(agotado)'}</span>
+      <span class="acciones">
+        <button class="editar" onclick="editarItem('${catId}', ${subIndex}, '${it.id}')">✎</button>
+        <button class="borrar" onclick="borrarItem('${catId}', ${subIndex}, '${it.id}')">🗑</button>
+      </span>
+    </div>`;
+  });
+  return html;
+}
+
+function guardarAviso(){
+  DATOS.avisoTitulo = document.getElementById("avisoTituloInput").value.trim();
+  DATOS.avisoTexto = document.getElementById("avisoTextoInput").value.trim();
+  guardarDatos();
+  render();
+  alert("Aviso actualizado.");
+}
+
+function exportarDatos(){
+  const blob = new Blob([JSON.stringify(DATOS, null, 2)], {type:"application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "respaldo_carta_neon_mi_rancho.json";
+  a.click();
+}
+
+function adminAbrirCategoria(id){ vistaAdmin={tipo:"categoria", id}; renderAdmin(); }
+
+function toggleNocturna(valor){
+  const cat = DATOS.categorias.find(c=>c.id==="nocturna");
+  cat.activa = valor;
+  guardarDatos();
+}
+function guardarCamposAlmuerzo(){
+  const cat = DATOS.categorias.find(c=>c.id==="almuerzos");
+  cat.sopaDelDia = document.getElementById("sopaInput").value.trim();
+  cat.principioDelDia = document.getElementById("principioInput").value.trim();
+  cat.ensalada = document.getElementById("ensaladaInput").value.trim();
+  cat.acompanante = document.getElementById("acompananteInput").value.trim();
+  guardarDatos();
+  alert("Datos del almuerzo actualizados.");
+}
+function guardarSabor(){
+  const cat = DATOS.categorias.find(c=>c.id==="helados");
+  cat.saborDelDia = document.getElementById("saborInput").value.trim();
+  guardarDatos();
+  alert("Sabor del día actualizado.");
+}
+
+/* ================= ITEM CRUD ================= */
+function obtenerListaItems(catId, subIndex){
+  const cat = DATOS.categorias.find(c=>c.id===catId);
+  return subIndex===null || subIndex===undefined ? cat.items : cat.subcategorias[subIndex].items;
+}
+
+function nuevoItem(catId, subIndex){
+  edicionActual = {catId, subIndex, itemId:null};
+  document.getElementById("itemModalTitulo").textContent = "Nuevo producto";
+  document.getElementById("fNombre").value="";
+  document.getElementById("fDesc").value="";
+  document.getElementById("fOpciones").value="";
+  document.getElementById("fPrecio").value="";
+  document.getElementById("fFoto").value="";
+  document.getElementById("fDisponible").checked = true;
+  document.getElementById("overlayItem").classList.add("activo");
+}
+
+function editarItem(catId, subIndex, itemId){
+  subIndex = (subIndex==="null" || subIndex===null) ? null : Number(subIndex);
+  edicionActual = {catId, subIndex, itemId};
+  const lista = obtenerListaItems(catId, subIndex);
+  const item = lista.find(i=>i.id===itemId);
+  document.getElementById("itemModalTitulo").textContent = "Editar producto";
+  document.getElementById("fNombre").value = item.nombre;
+  document.getElementById("fDesc").value = item.desc||"";
+  document.getElementById("fOpciones").value = item.opciones||"";
+  document.getElementById("fPrecio").value = item.precio===null?"":item.precio;
+  document.getElementById("fFoto").value = item.foto||"";
+  document.getElementById("fDisponible").checked = !!item.disponible;
+  document.getElementById("overlayItem").classList.add("activo");
+}
+
+function borrarItem(catId, subIndex, itemId){
+  subIndex = (subIndex==="null" || subIndex===null) ? null : Number(subIndex);
+  if(!confirm("¿Eliminar este producto?")) return;
+  const lista = obtenerListaItems(catId, subIndex);
+  const idx = lista.findIndex(i=>i.id===itemId);
+  if(idx>-1) lista.splice(idx,1);
+  guardarDatos();
+  renderAdmin();
+  render();
+}
+
+function guardarItem(){
+  const nombre = document.getElementById("fNombre").value.trim();
+  if(!nombre){ alert("El nombre es obligatorio."); return; }
+  const desc = document.getElementById("fDesc").value.trim();
+  const opciones = document.getElementById("fOpciones").value.trim();
+  const precioRaw = document.getElementById("fPrecio").value;
+  const precio = precioRaw===""? null : Number(precioRaw);
+  const foto = document.getElementById("fFoto").value.trim();
+  const disponible = document.getElementById("fDisponible").checked;
+
+  const {catId, subIndex, itemId} = edicionActual;
+  const lista = obtenerListaItems(catId, subIndex);
+
+  if(itemId){
+    const item = lista.find(i=>i.id===itemId);
+    Object.assign(item, {nombre, desc, opciones, precio, foto, disponible});
+  } else {
+    const id = "item_" + Date.now();
+    lista.push({id, nombre, desc, opciones, precio, foto, disponible});
+  }
+  guardarDatos();
+  cerrar('overlayItem');
+  renderAdmin();
+  render();
+}
+
+/* ================= UTIL ================= */
+function cerrar(idOverlay){ document.getElementById(idOverlay).classList.remove("activo"); }
+
+/* Cerrar overlays al hacer click fuera del modal */
+document.querySelectorAll(".overlay").forEach(ov=>{
+  ov.addEventListener("click", (e)=>{ if(e.target===ov) ov.classList.remove("activo"); });
+});
+
+render();
+</script>
+
+
+</body></html>
