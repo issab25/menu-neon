@@ -1,12 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0047)https://enchanting-bavarois-1966c4.netlify.app/ -->
-<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- This site is hosted on Netlify. Anyone can build and deploy a site
-     like this one for free: https://netlify.new/?utm_campaign=ai-legible&utm_source=comment&utm_medium=referral&utm_id=a4004fb2-c0db-4d20-ab2e-0fa88f5d85f4
-     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
-<meta name="hosting-provider" content="Netlify">
-<meta name="netlify-deploy" content="https://netlify.new/?utm_campaign=ai-legible&amp;utm_source=meta&amp;utm_medium=referral&amp;utm_id=a4004fb2-c0db-4d20-ab2e-0fa88f5d85f4">
-
+<html lang="es">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 <title>Neón y Sabor Mi Rancho — Carta Digital</title>
 <style>
@@ -304,62 +299,19 @@
   <div class="frase">"Buena comida, buenas bebidas y grandes momentos."</div>
 </header>
 
-<main id="main"><div class="aviso-general">
-      <div class="aviso-titulo">Aviso importante</div>
-      <div class="aviso-texto">Los desechables tienen un costo adicional. El domicilio tiene un valor de $2.000.</div>
-    </div><button class="volver" onclick="irAInicio()">← Categorías</button>
-    <div class="cat-titulo">🌅 Desayunos</div><div class="item">
-    
-    <div class="item-info">
-      <div class="item-nombre">Caldo + Bandeja Huevos al gusto corriente</div>
-      <div class="item-desc">Caldo + Arroz + Huevos su Preferencia + Arepa o Patacones + Bebida- Cafe - Limonada - Tinto- Chocolate</div>
-      <div class="item-opciones">Opciones: Huevos - Rancheros - Pericos rancheros - Revueltos - Fritos</div>
-      
-      <div class="item-footer">
-        <span class="item-precio">$10</span>
-        <span class="badge disp">Disponible</span>
-      </div>
-      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;caldo&#39;)">+ Agregar</button>
-    </div>
-  </div><div class="item">
-    
-    <div class="item-info">
-      <div class="item-nombre">Bandeja con proteína de su preferencia deja en la nota</div>
-      <div class="item-desc">Elige tu proteína para acompañar el desayuno. déjanos saber en la nota</div>
-      <div class="item-opciones">Opciones: Carne sudada, Pollo sudado, Cachama sudada, Pechuga para asar, Carne de res para asar, Carne de cerdo para asar, Hígado-Huevos al gusto</div>
-      
-      <div class="item-footer">
-        <span class="item-precio">$8</span>
-        <span class="badge disp">Disponible</span>
-      </div>
-      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;huevos&#39;)">+ Agregar</button>
-    </div>
-  </div><div class="item">
-    
-    <div class="item-info">
-      <div class="item-nombre">Bandeja con proteína</div>
-      <div class="item-desc">Elige tu proteína para acompañar el desayuno.</div>
-      <div class="item-opciones">Opciones: Carne sudada, Pollo sudado, Cachama sudada, Pechuga para asar, Carne de res para asar, Carne de cerdo para asar, Hígado</div>
-      
-      <div class="item-footer">
-        <span class="item-precio">Precio por confirmar</span>
-        <span class="badge disp">Disponible</span>
-      </div>
-      <button class="btn-agregar" onclick="agregarAlCarrito(&#39;desayunos&#39;, null, &#39;bandeja_desayuno&#39;)">+ Agregar</button>
-    </div>
-  </div></main>
+<main id="main"></main>
 
 <footer>Piamonte, Cauca · Carta digital</footer>
 
 <button class="qr-flotante" onclick="abrirQR()" title="Ver código QR">▦</button>
 <button class="carrito-flotante" onclick="abrirCarrito()" title="Ver mi pedido">🛒</button>
-<div class="carrito-badge" id="carritoBadge" style="display: flex;">1</div>
-<div class="aviso-toast" id="avisoAgregado">Bandeja con proteína agregado al pedido</div>
+<div class="carrito-badge" id="carritoBadge">0</div>
+<div class="aviso-toast" id="avisoAgregado"></div>
 
 <!-- CARRITO / PEDIDO MODAL -->
 <div class="overlay" id="overlayCarrito">
   <div class="modal">
-    <button class="cerrar-x" onclick="cerrar(&#39;overlayCarrito&#39;)">✕</button>
+    <button class="cerrar-x" onclick="cerrar('overlayCarrito')">✕</button>
     <h3>Tu pedido</h3>
     <div id="carritoContenido"></div>
     <div id="carritoTotalBox" style="display:none;">
@@ -377,10 +329,10 @@
 <!-- QR MODAL -->
 <div class="overlay" id="overlayQR">
   <div class="modal">
-    <button class="cerrar-x" onclick="cerrar(&#39;overlayQR&#39;)">✕</button>
+    <button class="cerrar-x" onclick="cerrar('overlayQR')">✕</button>
     <h3>Código QR de la carta</h3>
-    <img class="qr-img" id="qrImg" src="./index_files/saved_resource" alt="QR">
-    <div class="url-box" id="qrUrl">https://enchanting-bavarois-1966c4.netlify.app/</div>
+    <img class="qr-img" id="qrImg" src="" alt="QR">
+    <div class="url-box" id="qrUrl"></div>
     <div class="small-note">Este QR siempre apunta a la dirección donde esté abierto este archivo. Úsalo en todas las mesas — es el único QR que necesitas. Si publicas el archivo en una nueva URL pública HTTPS, abre este menú desde esa URL y el QR se actualizará solo.</div>
     <div class="modal-botones">
       <button class="btn btn-verde" onclick="descargarQR()">Descargar QR</button>
@@ -391,7 +343,7 @@
 <!-- LOGIN MODAL -->
 <div class="overlay" id="overlayLogin">
   <div class="modal">
-    <button class="cerrar-x" onclick="cerrar(&#39;overlayLogin&#39;)">✕</button>
+    <button class="cerrar-x" onclick="cerrar('overlayLogin')">✕</button>
     <h3>Acceso administrador</h3>
     <label>Usuario</label>
     <input type="text" id="loginUser">
@@ -406,36 +358,16 @@
 <!-- ADMIN PANEL -->
 <div class="overlay" id="overlayAdmin">
   <div class="modal" style="max-width:480px;">
-    <button class="cerrar-x" onclick="cerrar(&#39;overlayAdmin&#39;)">✕</button>
+    <button class="cerrar-x" onclick="cerrar('overlayAdmin')">✕</button>
     <h3 id="adminTitulo">Panel de administración</h3>
-    <div id="adminContenido"><button class="btn btn-verde" style="margin-bottom:14px;" onclick="exportarDatos()">📥 Descargar copia de mis datos (respaldo)</button>
-      <label>Título del aviso</label>
-      <input type="text" id="avisoTituloInput" value="Aviso importante">
-      <label>Texto del aviso (desechables, domicilio, etc.)</label>
-      <textarea id="avisoTextoInput">Los desechables tienen un costo adicional. El domicilio tiene un valor de $2.000.</textarea>
-      <button class="btn btn-verde" style="margin:8px 0 16px;" onclick="guardarAviso()">Guardar aviso</button>
-      <div class="admin-cat-lista"><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;desayunos&#39;)">
-        <span>🌅 Desayunos</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;almuerzos&#39;)">
-        <span>🍲 Almuerzos Corrientes</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;carta&#39;)">
-        <span>🍽️ Comida a la Carta</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;nocturna&#39;)">
-        <span>🌙 Nocturna — Fines de Semana</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;helados&#39;)">
-        <span>🍨 Helados Caseros</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;bebidas&#39;)">
-        <span>🥤 Bebidas</span><span>›</span>
-      </div><div class="admin-cat-row" onclick="adminAbrirCategoria(&#39;servicios&#39;)">
-        <span>📋 Servicios</span><span>›</span>
-      </div></div><div class="small-note">Toca una categoría para editar sus productos. Usuario y contraseña de administrador se pueden cambiar más adelante si lo necesitas.</div></div>
+    <div id="adminContenido"></div>
   </div>
 </div>
 
 <!-- ITEM EDIT MODAL -->
 <div class="overlay" id="overlayItem">
   <div class="modal">
-    <button class="cerrar-x" onclick="cerrar(&#39;overlayItem&#39;)">✕</button>
+    <button class="cerrar-x" onclick="cerrar('overlayItem')">✕</button>
     <h3 id="itemModalTitulo">Producto</h3>
     <label>Nombre</label>
     <input type="text" id="fNombre">
@@ -449,11 +381,11 @@
     <input type="text" id="fFoto">
     <div class="toggle-row">
       <span>Disponible</span>
-      <label class="switch"><input type="checkbox" id="fDisponible" checked=""><span class="slider"></span></label>
+      <label class="switch"><input type="checkbox" id="fDisponible" checked><span class="slider"></span></label>
     </div>
     <div class="modal-botones">
       <button class="btn btn-verde" onclick="guardarItem()">Guardar</button>
-      <button class="btn btn-borde" onclick="cerrar(&#39;overlayItem&#39;)">Cancelar</button>
+      <button class="btn btn-borde" onclick="cerrar('overlayItem')">Cancelar</button>
     </div>
   </div>
 </div>
@@ -523,22 +455,44 @@ const DATOS_INICIALES = {
   ]
 };
 
-const CLAVE_STORAGE = "carta_neon_mi_rancho_v1";
+const CLAVE_STORAGE = "carta_neon_mi_rancho_v1"; // ya no se usa para guardar, solo como respaldo local de emergencia
 const WHATSAPP_NUMERO = "573128282045"; // 3128282045 con indicativo de Colombia
-let DATOS = cargarDatos();
+let DATOS = JSON.parse(JSON.stringify(DATOS_INICIALES));
 let sesionAdmin = false;
 let vistaActual = {tipo:"inicio"};
 let edicionActual = null; // {catId, subIndex|null, itemId|null}
 let carrito = []; // {catId, subIndex, itemId, nombre, precio, opciones, cantidad}
 
-function cargarDatos(){
-  const guardado = localStorage.getItem(CLAVE_STORAGE);
-  if(guardado){
-    try{ return JSON.parse(guardado); }catch(e){ return JSON.parse(JSON.stringify(DATOS_INICIALES)); }
+async function cargarDatos(){
+  try{
+    const resp = await fetch("/api/menu?t=" + Date.now());
+    if(!resp.ok) throw new Error("no se pudo leer /api/menu");
+    const datos = await resp.json();
+    return datos;
+  }catch(e){
+    console.warn("No se pudo cargar /api/menu, usando datos por defecto.", e);
+    const guardado = localStorage.getItem(CLAVE_STORAGE);
+    if(guardado){ try{ return JSON.parse(guardado); }catch(e2){} }
+    return JSON.parse(JSON.stringify(DATOS_INICIALES));
   }
-  return JSON.parse(JSON.stringify(DATOS_INICIALES));
 }
-function guardarDatos(){ localStorage.setItem(CLAVE_STORAGE, JSON.stringify(DATOS)); }
+
+async function guardarDatos(){
+  localStorage.setItem(CLAVE_STORAGE, JSON.stringify(DATOS)); // respaldo local por si falla la red
+  try{
+    const resp = await fetch("/api/menu", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({clave: DATOS.clave, datos: DATOS})
+    });
+    const resultado = await resp.json();
+    if(!resultado.ok){
+      alert("No se pudieron guardar los cambios en el servidor: " + (resultado.error||"error desconocido") + ". Tus cambios quedaron guardados solo en este navegador por ahora.");
+    }
+  }catch(e){
+    alert("No se pudo conectar con el servidor para guardar los cambios. Revisa tu conexión e inténtalo de nuevo. Tus cambios quedaron guardados solo en este navegador por ahora.");
+  }
+}
 
 function formatoPrecio(p){
   if(p===null || p===undefined || p==="") return "Precio por confirmar";
@@ -1004,8 +958,12 @@ document.querySelectorAll(".overlay").forEach(ov=>{
   ov.addEventListener("click", (e)=>{ if(e.target===ov) ov.classList.remove("activo"); });
 });
 
-render();
+async function iniciar(){
+  DATOS = await cargarDatos();
+  render();
+  actualizarBadgeCarrito();
+}
+iniciar();
 </script>
-
-
-</body></html>
+</body>
+</html>
